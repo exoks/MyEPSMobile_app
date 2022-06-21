@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">MY-EPS Mobile</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="partage">Share</string>
+    <string name="message2">Are you sure you want to leave the Application?</string>
+    <string name="btn1">EPS Formation CRMEF</string>
+    <string name="btn2">EPS Documents Pédagogiques</string>
+    <string name="youtube_api_key">AIzaSyB3eHR9DjtwOlqR3SjWk29CTdfe0A6pDQI</string>
+
+
+</resources>

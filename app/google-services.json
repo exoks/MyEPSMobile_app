@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1074931750809",
+    "project_id": "epsproject-dfa4a",
+    "storage_bucket": "epsproject-dfa4a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1074931750809:android:e58bd8a329cfbb18bee508",
+        "android_client_info": {
+          "package_name": "com.example.eps"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1074931750809-9sjkt5t85kfipbm99gnrlu1bq90rd6lv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA47y2Ug4LMc8SCjez50IGUVS59TRBPlGA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1074931750809-9sjkt5t85kfipbm99gnrlu1bq90rd6lv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

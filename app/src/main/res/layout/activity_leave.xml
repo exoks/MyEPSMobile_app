@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:background="@drawable/screen"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <TextView android:id="@+id/textView" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="10.0dip" android:textColor="#ffff" android:text="vous pouvez nous contacter en utlisant les informations ci-dessous" />
+        <ImageView
+            android:background="@drawable/sliderimage2"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:layout_marginBottom="20dp"/>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <Button android:textColor="#ffffffff" android:id="@+id/btnShare" android:background="@drawable/buttonmenu" android:layout_width="fill_parent" android:layout_height="60dp" android:layout_margin="5.0dip" android:text="Share" android:layout_weight="1.0" />
+            <Button android:textColor="#ffffffff" android:id="@+id/btnExit" android:background="@drawable/buttonmenu" android:layout_width="fill_parent" android:layout_height="60dp" android:layout_margin="5.0dip" android:text="Home" android:layout_weight="1.0" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
