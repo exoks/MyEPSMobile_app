@@ -48,6 +48,7 @@ public class ShowDownloadActivity extends AppCompatActivity {
         fab = findViewById(R.id.pdf_fab);
         path = getIntent().getStringExtra(ListActivity.PATH);
 
+        //Toast.makeText(this, "The path i got : " + path, Toast.LENGTH_SHORT).show();
         view = findViewById(R.id.web_pdf);
 
         String[] permissions = {Manifest.permission.WRITE_EXTERNAL_STORAGE};
@@ -65,7 +66,8 @@ public class ShowDownloadActivity extends AppCompatActivity {
         super.onResume();
         FirebaseStorage storage = FirebaseStorage.getInstance();
         StorageReference ref = storage.getReference();
-        StorageReference reff = ref.child(path+".pdf");
+        StorageReference reff = ref.child(path +".pdf");
+        Toast.makeText(this, path + ".pdf", Toast.LENGTH_LONG).show();
         reff.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
@@ -143,7 +145,7 @@ public class ShowDownloadActivity extends AppCompatActivity {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
         if ( requestCode == 1 && grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_DENIED) {
-            Toast.makeText(this, "Neet permission to accses ", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Need permission to accses ", Toast.LENGTH_SHORT).show();
             finish();        }
     }
 }

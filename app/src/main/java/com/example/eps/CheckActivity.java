@@ -23,6 +23,7 @@ public class CheckActivity extends AppCompatActivity {
     private int indexOfData;
     private LinearLayout checkContainer;
     private Button next;
+    private String checkpath;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,18 +38,21 @@ public class CheckActivity extends AppCompatActivity {
             }
         });
         String[] gridNames = {"Bascketball","Handball","Volleyball","Gymnastique","Course de vitesse","Course en duree","Lancer de poids","Saut en longueur", "Football"};
+        /* Preparing the path for download activity */
         TextView title = findViewById(R.id.check_title);
-        title.setText(String.format("%s -> %s", getIntent().getStringExtra(ListActivity.PATH), gridNames[getIntent().getIntExtra(ListActivity.INDEX_AT_GRID, -1)]));
+        checkpath = String.format("%s -> %s", getIntent().getStringExtra(ListActivity.PATH), gridNames[getIntent().getIntExtra(ListActivity.INDEX_AT_GRID, -1)]);
+        //Toast.makeText(this, String.valueOf("path : " + checkpath), Toast.LENGTH_SHORT).show();
+        title.setText(checkpath);
         checkContainer = findViewById(R.id.check_linear);
         DataBase db = new DataBase(this);
         indexOfData = getIntent().getIntExtra(Splash.INDEX_AT_BTN,-1);
         ArrayList<Modules> modules = db.getAllModule();
+        // If you have a problem turn back into this line
         Modules m = modules.get(indexOfData);
         oti.setText(m.getOTI());
         ArrayList<MaterialCheckBox> checkBoxes = new ArrayList<>();
-        String checkBoxesText =:q
-    ::wq
-:wq String[] slices = checkBoxesText.split("\n");
+        String checkBoxesText = m.getCHECK();
+        String[] slices = checkBoxesText.split("\n");
         for ( int i = 0 ; i < slices.length; i++){
             MaterialCheckBox checkBox = new MaterialCheckBox(this);
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -86,19 +90,20 @@ public class CheckActivity extends AppCompatActivity {
             default:
                 Toast.makeText(this, "You have some kinds of problems", Toast.LENGTH_SHORT).show();
         }
-        next=findViewById(R.id.next);
+        next = findViewById(R.id.next);
         next.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("ResourceAsColor")
             @Override
             public void onClick(View view) {
                 int j = 0 ;
-                for (int i=0 ; i < checkBoxes.size(); i++){
-                    if (checkBoxes.get(i).isChecked()){
+                for (int i = 0 ; i < checkBoxes.size(); i++){
+                    if (checkBoxes.get(i).isChecked())
                         j++;
-                    }
                 }
                 if (j ==1 || j == 2){
-                    startActivity(new Intent(getBaseContext(),ListActivity.class).putExtra(MainActivity.LIST_ACTIVITY_KEY,3));
+                    Intent in = new Intent(getBaseContext(), ShowDownloadActivity.class);
+                    in.putExtra(ListActivity.PATH, checkpath.replaceAll(" -> ", "/"));
+                    startActivity(in);
                 } else {
                     Snackbar.make(next,"Svp veuillez selectioner 1 ou 2 compétences au maximum pour continuer!!",Snackbar.LENGTH_LONG).setAction("UNDO", new View.OnClickListener() {
                         @Override
